@@ -80,7 +80,7 @@
       list-style: none;
     }
     .nav-links a {
-      font-size: 13px;
+      font-size: 15px;
       font-weight: 500;
       color: var(--muted);
       text-decoration: none;
@@ -94,21 +94,22 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 16px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 12px;
+      padding: 8px 18px;
+      background: transparent;
+      color: var(--accent);
+      font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em;
       text-decoration: none;
       border-radius: var(--radius-sm);
+      border: 1.5px solid var(--accent);
       transition: all 0.2s;
     }
     .btn-resume:hover {
-      background: #8a6020;
+      background: var(--accent);
+      color: #fff8f0;
       transform: translateY(-1px);
-      box-shadow: var(--shadow);
+      box-shadow: 0 4px 16px rgba(176,128,48,0.25);
     }
 
     /* 汉堡菜单 */
@@ -168,7 +169,7 @@
       background: var(--accent2-light);
       color: var(--accent2);
       border-radius: 50px;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.04em;
       margin-bottom: 20px;
@@ -217,7 +218,7 @@
     }
     .stat-num .gold { color: var(--accent); }
     .stat-label {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -318,7 +319,7 @@
       border-radius: var(--radius);
       padding: 10px 14px;
       box-shadow: var(--shadow);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--muted);
       white-space: nowrap;
     }
@@ -335,7 +336,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -381,9 +382,9 @@
     .about-text p strong { color: var(--fg); font-weight: 600; }
     .skill-bars { display: flex; flex-direction: column; gap: 18px; }
     .skill-item { display: flex; flex-direction: column; gap: 6px; }
-    .skill-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 500; }
+    .skill-header { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; }
     .skill-name { color: var(--fg); }
-    .skill-pct { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+    .skill-pct { font-family: var(--font-mono); font-size: 14px; color: var(--muted); }
     .skill-bar-bg { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .skill-bar-fill {
       height: 100%;
@@ -406,7 +407,7 @@
     .timeline-item:last-child { border-bottom: none; }
     .timeline-date {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--muted);
       padding-top: 3px;
     }
@@ -423,6 +424,55 @@
     .timeline-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
     .timeline-content .org { font-size: 13px; color: var(--accent2); font-weight: 500; margin-bottom: 8px; }
     .timeline-content p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── 实习经历（条目式） ── */
+    .internship { display: flex; flex-direction: column; gap: 36px; }
+    .internship-item {
+      padding: 24px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .internship-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent2);
+      border-radius: 3px 0 0 3px;
+    }
+    .internship-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .internship-item ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .internship-item li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      padding-left: 14px;
+      position: relative;
+    }
+    .internship-item li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+    .internship-item li strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
 
     /* ── 作品集卡片 ── */
     .portfolio-tabs {
@@ -449,55 +499,140 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .work-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all 0.25s;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-    .work-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: var(--accent2);
-    }
-    .work-card-thumb {
-      position: relative;
-      width: 100%;
-      height: 180px;
-      overflow: hidden;
-      background: var(--border);
-    }
-    .work-card-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s, filter 0.4s;
-      filter: saturate(0.9);
-    }
-    .work-card:hover .work-card-thumb img {
-      transform: scale(1.04);
-      filter: saturate(1.1) blur(1px);
-    }
-    .work-card-thumb .play-icon {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .work-card:hover .play-icon { opacity: 1; }
-    .play-icon-circle {
+    /* ===== 作品集列表布局 ===== */
+.work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.work-list-sect-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+.work-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.work-list-item:hover {
+  border-color: var(--accent2);
+  box-shadow: var(--shadow);
+  transform: translateX(4px);
+}
+.work-list-thumb {
+  position: relative;
+  width: 120px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--border);
+}
+.work-list-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.work-list-item:hover .work-list-thumb img {
+  filter: brightness(0.8);
+}
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.work-list-item:hover .play-overlay { opacity: 1; }
+.work-list-body {
+  flex: 1;
+  min-width: 0;
+}
+.work-list-body h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.work-list-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+.work-list-tag {
+  font-size: 0.72rem;
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+/* 证书列表 */
+.cert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.cert-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+}
+.cert-item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+.cert-item p {
+  font-size: 0.78rem;
+  color: var(--fg);
+  line-height: 1.6;
+}
+.cert-item .gold { color: #b08030; font-weight: 700; }
+.cert-item .bronze { color: #a05a2c; font-weight: 700; }
+
+/* 视频弹窗 */
+#video-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+#video-modal.open { display: flex; }
+#video-modal video {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+#video-modal .close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}lay-icon-circle {
       width: 44px; height: 44px;
       background: rgba(255,255,255,0.9);
       border-radius: 50%;
@@ -519,7 +654,7 @@
     }
     .work-card-body { padding: 16px; }
     .work-card-body h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; line-height: 1.4; }
-    .work-card-body p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .work-card-body p { font-size: 14px; color: var(--muted); line-height: 1.6; }
     .work-card-meta {
       display: flex;
       justify-content: space-between;
@@ -532,7 +667,7 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      font-size: 11px;
+      font-size: 13px;
       color: var(--muted);
       font-family: var(--font-mono);
     }
@@ -568,9 +703,9 @@
       font-size: 18px;
     }
     .edu-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .edu-card .edu-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .edu-card .edu-sub { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
     .edu-card .edu-score { font-family: var(--font-mono); font-size: 22px; font-weight: 500; color: var(--fg); }
-    .edu-card .edu-score-label { font-size: 11px; color: var(--muted); }
+    .edu-card .edu-score-label { font-size: 13px; color: var(--muted); }
 
     /* ── 联系方式 ── */
     #contact { text-align: center; }
@@ -605,8 +740,8 @@
       font-size: 16px;
       flex-shrink: 0;
     }
-    .contact-card .contact-label { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
-    .contact-card .contact-value { font-size: 14px; font-weight: 600; }
+    .contact-card .contact-label { font-size: 14px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .contact-card .contact-value { font-size: 16px; font-weight: 600; }
 
     /* ── 页脚 ── */
     footer {
@@ -617,7 +752,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--muted);
     }
     footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -644,8 +779,10 @@
       .nav-hamburger { display: flex; }
       .hero-stats { gap: 20px; }
       .stat-num { font-size: 22px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
-      .timeline-dot { display: none; }
+      .internship { gap: 20px; }
+      .internship-item { padding: 18px 18px; }
+      .internship-item h3 { font-size: 16px; }
+      .internship-item li { font-size: 14px; line-height: 1.75; }
       .work-grid { grid-template-columns: 1fr; }
       .edu-grid { grid-template-columns: 1fr; }
       section { padding: 60px 16px; }
@@ -697,14 +834,14 @@
   <div class="hero-left">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      求职中 · 2025 届
+      求职中 · 2025 级
     </div>
     <h1>
       李卓航<br>
       <span class="gold">新闻与传播</span>
     </h1>
     <p class="hero-sub">
-      中央民族大学新闻与传播学院硕士，研究方向为传媒数字化实践。曾在 <strong>工信部</strong>、<strong>中国经济时报</strong>、<strong>山西晚报</strong> 参与一线新闻生产，具备扎实的文字功底与多媒体内容创作能力。
+      中央民族大学新闻与传播学院硕士在读，研究方向为智能营销传播。曾在 <strong>工信部工业文化发展中心</strong>、<strong>中国经济时报山西站</strong>、<strong>山西晚报</strong> 参与运营与视频生产，具备扎实的活动组织能力、多媒体内容创作能力与文字功底。熟练掌握<strong>WPS</strong>、<strong>Office</strong>、<strong>飞书</strong>等办公软件及<strong>Hermes</strong>、<strong>Codex</strong>、<strong>Claude Code</strong> 等AI编程工具。富有责任心、好奇心，有较好的沟通意识与学习能力。
     </p>
     <div class="hero-stats">
       <div class="stat-item">
@@ -713,15 +850,15 @@
       </div>
       <div class="stat-item">
         <span class="stat-num">1<span class="gold">0</span>+</span>
-        <span class="stat-label">篇媒体作品</span>
+        <span class="stat-label">文字作品</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">50+</span>
+        <span class="stat-label">媒体视频作品</span>
       </div>
       <div class="stat-item">
         <span class="stat-num">5</span>
-        <span class="stat-label">个媒体平台</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">1</span>
-        <span class="stat-label">项大创课题</span>
+        <span class="stat-label">专业竞赛</span>
       </div>
     </div>
     <div class="hero-cta">
@@ -751,26 +888,30 @@
     <div class="about-text reveal">
       <h2 class="section-title">关于我</h2>
       <p>
-        中央民族大学新闻与传播学院 <strong>2025 届硕士</strong>，研究方向为传媒数字化实践。本科毕业于山西大学新闻学院，具备跨学科背景与扎实的理论基础。
+        中央民族大学新闻与传播学院 <strong>2025 级硕士在读</strong>，研究方向为智能营销传播。本科毕业于山西财经大学新闻学院，在<strong>新闻传播与项目运营的交叉领域</strong>打下了扎实基础。具备丰富的学生工作经验：<strong>历任班长、党支部委员、学生会副部长</strong>等职务。
       </p>
-      <p>
-        读研期间活跃于各类媒体实习：<strong>工业和信息化部</strong>新闻宣传工作让我理解了政策传播的逻辑；<strong>中国经济时报</strong>深度报道训练了我的调查研究与数据解读能力；<strong>山西晚报</strong>一线采访则锻炼了突发新闻的快速响应能力。
-      </p>
-      <p>
-        求职意向为媒体编辑、内容运营、品牌传播等岗位，期待将学术训练与媒体实践经验转化为职业价值。
-      </p>
+      <div>
+    <p>
+        在校期间，我<strong>多次主持并策划校院两级学生活动</strong>，凭借出色的统筹与执行力获得师生一致好评，并荣获“优秀学生干部”称号。同时，我带领团队在多项创新竞赛中完成从创意定义、方案设计、资源统筹到路演交付的全流程项目孵化，累计斩获包括“互联网+”省金、中国大学生计算机设计大赛省一等奖在内的<strong>5项省级奖项</strong>。
+    </p>
+    <p>
+        校园之外，我积极投身行业一线，先后于<strong>工信部工业文化发展中心、山西晚报新媒体编辑部、中国经济时报山西记者站实习</strong>，深度参与“第四届中国工业与科幻文学大赛”开幕式筹办、“大美西山”文旅IP推广及省级重大主题报道等项目，锤炼了跨团队协作与复杂项目的落地执行能力。
+    </p>
+</div>
+      <p>在一次次的实践挑战中，我逐步积攒了从0到1孵化项目的经验，初步了解了用户需求洞察与数据分析，能基于产品数据表现迭代内容策略。在多个大型活动的协办和报道过程中，也逐步熟悉了项目管理全流程，锤炼出了优秀的统筹规划、风险预判与多线程交付能力，并能结合项目需要，利用各类AI智能体搭建项目需要的自动化程序。
+</p>
     </div>
     <div class="skill-bars reveal">
       <div class="skill-item">
         <div class="skill-header">
-          <span class="skill-name">新闻采访与写作</span>
+          <span class="skill-name">新媒体技术应用</span>
           <span class="skill-pct">92%</span>
         </div>
         <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-header">
-          <span class="skill-name">多媒体内容制作</span>
+          <span class="skill-name">项目落地统筹</span>
           <span class="skill-pct">85%</span>
         </div>
         <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85"></div></div>
@@ -804,35 +945,31 @@
 <section id="experience">
   <div class="section-label">Experience</div>
   <h2 class="section-title">实习经历</h2>
-  <p class="section-sub">三段媒体实习，覆盖政策传播、深度报道与一线采访</p>
 
-  <div class="timeline">
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024.03 – 2024.05</div>
-      <div class="timeline-content">
-        <h3>工业和信息化部 · 某研究所</h3>
-        <div class="org">宣传岗位 · 北京</div>
-        <p>参与「工信数云」公众号运维，累计发布推文 60 余篇；独立策划并制作《工业互联网》科普视频 3 条，其中母亲节主题视频在平台获得较好传播效果；参与撰写新闻通稿及内部汇报材料。</p>
-      </div>
+  <div class="internship">
+    <div class="internship-item reveal">
+      <h3>2026年1—5月 | 工信部工业文化发展中心 | 新媒体运营（AI视频方向）</h3>
+      <ul>
+        <li><strong>产品策划与增长运营：</strong>负责中心自媒体矩阵的内容规划与迭代。通过分析AI技术热点与用户画像，独立策划并落地系列视频脚本，全网播放量累计突破15万，拉动账号粉丝增长近1000人，验证了内容驱动增长的可行性。</li>
+        <li><strong>项目管理与影像产品交付：</strong>承接单位日常影像宣传需求，独立完成从需求对接、脚本构思、实地拍摄到后期交付的全流程管理，产出的影像素材被高频用于官方公众号等核心渠道，确保品牌视觉的一致性与高品质。</li>
+        <li><strong>赛事全流程统筹：</strong>在"第四届中国工业与科幻文学大赛"中，协助制定开幕式执行方案，负责嘉宾对接、流程彩排与现场总控，保障活动零差错落地。后统筹300余份参赛作品的全生命周期管理，优化分类与归档标准，为评审环节的顺利推进打下基础。</li>
+      </ul>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024.06 – 2024.09</div>
-      <div class="timeline-content">
-        <h3>中国经济时报 · 工银财经</h3>
-        <div class="org">财经记者 · 北京</div>
-        <p>独立完成山西专题报道 2 篇，涵盖能源转型与科技金融方向；参与数据新闻制作，对接山西省金融办、发改委等政府部门，作品获编辑好评并刊发于头版。</p>
-      </div>
+
+    <div class="internship-item reveal">
+      <h3>2025年4—7月 | 山西晚报 | 新媒体运营（短视频新闻方向）</h3>
+      <ul>
+        <li><strong>短视频产品孵化：</strong>基于抖音平台用户偏好与账号定位，独立完成新闻短视频的全流程创作。从选题策划、素材采集到剪辑交付闭环管理，共产出30余条视频产品。其中热点分析类内容播放量超5万次，验证了产品选题模型的有效性，有效提升品牌曝光。</li>
+        <li><strong>线下活动项目执行：</strong>深度参与"大美西山"文旅IP活动的统筹落地。协助制定包含社区渗透、景区动线规划在内的地推方案，并负责现场人力与物料调度。活动累计吸引线下参与者200余人，核心互动环节转化率达85%以上，达成项目拉新目标。</li>
+      </ul>
     </div>
-    <div class="timeline-item reveal">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2024.10 – 2025.01</div>
-      <div class="timeline-content">
-        <h3>山西晚报 · 深度报道部</h3>
-        <div class="org">深度记者 · 太原</div>
-        <p>参与社会、财经两类选题的新闻采编，独立完成视频剪辑与图文推送发布；参与"山西特优农产品产销对接会"等重大活动采访，积累了丰富的一线突发新闻处理经验。</p>
-      </div>
+
+    <div class="internship-item reveal">
+      <h3>2024年9—12月 | 中国经济时报山西记者站 | 见习记者</h3>
+      <ul>
+        <li><strong>复杂需求分析与内容交付：</strong>深入解读宏观经济政策与发布会核心信息，将复杂议题转化为公众可读的高质量报道。在时间紧、任务重的情况下，高效协调采访、撰稿与审核流程，成功在省级刊物交付2篇深度产业分析稿件。</li>
+        <li><strong>多线程项目推进：</strong>在高强度的发布会系列报道周期内，合理安排选题优先级，同步推进公众号的快讯产出与纸媒的深度稿撰写，最终交付6篇不同维度的内容产品，覆盖多元阅读场景，展现了强大的多任务统筹与执行能力。</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -843,326 +980,245 @@
   <h2 class="section-title">代表作品</h2>
   <p class="section-sub">视频、图文、数据报道等多媒体形式，覆盖社会、财经、科技多领域</p>
 
-  <div class="tab-container">
-    <div class="tab-buttons">
-      <button class="tab-btn active" onclick="switchTab(this,'tab-video')">🎬 视频作品</button>
-      <button class="tab-btn" onclick="switchTab(this,'tab-article')">📰 图文报道</button>
-      <button class="tab-btn" onclick="switchTab(this,'tab-project')">🏆 竞赛项目</button>
-    </div>
-
-    <div class="tab-panel active" id="tab-video">
-    <div class="work-grid">
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/工信部实习作品/video_别等不忙了才想起妈妈 母亲节记得..._top_0_2_compressed.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-mq.jpg" alt="母亲节视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>《别等不忙了才想起妈妈》</h3>
-          <p>工信部 · 母亲节主题原创视频策划制作</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>短视频</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/工信部实习作品/video_1970年的今天【东方红一号】_top_0_1.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-dfh.jpg" alt="东方红一号视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>《1970年的今天·东方红一号》</h3>
-          <p>工信部 · 航天科普历史回顾视频</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>短视频</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/工信部实习作品/video_如何优雅地发一封电报？ 流行..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-dg.jpg" alt="电报视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>《如何优雅地发一封电报？》</h3>
-          <p>工信部 · 历史科普与新媒体结合视频</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>短视频</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/工信部实习作品/video_爸妈满身尘土，却是我们的盖世英雄..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-bm.jpg" alt="爸妈尘土视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>《爸妈满身尘土，却是我们的盖世英雄》</h3>
-          <p>工信部 · 情感主题原创视频</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>短视频</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_山河加邻聚里首场线下活动启幕..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-shjl.jpg" alt="山河加邻视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>《山河加邻聚里》首场线下活动</h3>
-          <p>山西晚报 · 社区活动现场报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_山东一女网红违停被罚200元，情..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-ws.jpg" alt="网红违停视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>山东女网红违停被罚事件</h3>
-          <p>山西晚报 · 社会热点新闻报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_5月28日，中国大熊猫保护研究中..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-xm.jpg" alt="大熊猫视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>中国大熊猫保护研究</h3>
-          <p>山西晚报 · 动物保护主题新闻报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_印度航空一航班出现引擎故障，乘客..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-ydhk.jpg" alt="印度航空视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>印度航空引擎故障事件</h3>
-          <p>山西晚报 · 国际新闻报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_山西（太原）特优农产品夏季产销对..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-nc.jpg" alt="农产品视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>山西特优农产品夏季产销对接会</h3>
-          <p>山西晚报 · 产业经济新闻报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/山西晚报实习作品/video_特朗普全面暂停12国国民进入美国..._top_0_2.mp4" onclick="openVideo(this.href);return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-tlp.jpg" alt="特朗普视频封面">
-          <span class="work-card-tag">视频</span>
-          <div class="play-icon"><div class="play-icon-circle"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--fg)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-        </div>
-        <div class="work-card-body">
-          <h3>特朗普全面暂停12国国民入境</h3>
-          <p>山西晚报 · 国际政治新闻报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>新闻报道</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-    </div>
-
-    <div class="tab-panel" id="tab-article">
-    <div class="work-grid">
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/中国经济时报实习作品/山西：以电力现货市场打造能源革命样板.pdf" onclick="window.open(encodeURI(this.href));return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-df.jpg" alt="电力现货市场封面">
-          <span class="work-card-tag">数据报道</span>
-        </div>
-        <div class="work-card-body">
-          <h3>山西：以电力现货市场打造能源革命样板</h3>
-          <p>中国经济时报 · 深度数据报道 · 山西专题</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="portfolio_raw/portfolio/中国经济时报实习作品/山西：锚定科技金融 助力实体经济企稳向好.pdf" onclick="window.open(encodeURI(this.href));return false;">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-kjjr.jpg" alt="科技金融封面">
-          <span class="work-card-tag">财经报道</span>
-        </div>
-        <div class="work-card-body">
-          <h3>山西：锚定科技金融 助力实体经济企稳向好</h3>
-          <p>中国经济时报 · 财经深度报道 · 山西专题</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>PDF</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="https://mp.weixin.qq.com/s/pM52e1f7d3nx7k4fTece_g" target="_blank">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-wx1.jpg" alt="微信文章封面">
-          <span class="work-card-tag">微信</span>
-        </div>
-        <div class="work-card-body">
-          <h3>内容创作 · 策划与数据驱动</h3>
-          <p>微信公众号 · 内容运营 / 数据分析 / 选题策划</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path></svg>微信文章</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="https://mp.weixin.qq.com/s/-g8QtZEuraG4IWDpl1qUOg" target="_blank">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-wx2.jpg" alt="微信文章封面">
-          <span class="work-card-tag">微信</span>
-        </div>
-        <div class="work-card-body">
-          <h3>产业经济 · 深度报道与政策解读</h3>
-          <p>微信公众号 · 经济分析 / 政策解读 / 深度报道</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path></svg>微信文章</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="https://mp.weixin.qq.com/s/RFUyemSZaAF1-mJLVTLO0A" target="_blank">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-wx3.jpg" alt="微信文章封面">
-          <span class="work-card-tag">微信</span>
-        </div>
-        <div class="work-card-body">
-          <h3>数据报道 · 内容策划与视觉表达</h3>
-          <p>微信公众号 · 数据新闻 / 视觉呈现 / 内容策划</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path></svg>微信文章</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-card reveal" href="https://mp.weixin.qq.com/s/oKmsiVgAosdT00cnh2gDdA" target="_blank">
-        <div class="work-card-thumb">
-          <img src="thumbnails/cover-wx4.jpg" alt="微信文章封面">
-          <span class="work-card-tag">微信</span>
-        </div>
-        <div class="work-card-body">
-          <h3>媒体报道 · 新闻传播与内容运营</h3>
-          <p>微信公众号 · 新闻传播 / 内容运营 / 媒体合作</p>
-          <div class="work-card-meta">
-            <span class="work-card-media"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path></svg>微信文章</span>
-            <span class="work-card-arrow">↗</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-    </div>
-
-    <div class="tab-panel" id="tab-project">
-    <div class="work-grid">
-
-      <div class="work-card reveal" style="cursor:default">
-        <div class="work-card-thumb" style="height:200px;overflow:hidden">
-          <img src="thumbnails/cert-2023-hulianwang-jin.png" alt="互联网+金奖" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="work-card-body">
-          <h3>第九届中国国际"互联网+"大学生创新创业大赛</h3>
-          <p class="work-card-sub">产业命题赛道 · 省级金奖</p>
-        </div>
-      </div>
-
-      <div class="work-card reveal" style="cursor:default">
-        <div class="work-card-thumb" style="height:200px;overflow:hidden">
-          <img src="thumbnails/cert-2023-hongseqi-jin.png" alt="红色旅游铜奖" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="work-card-body">
-          <h3>第九届中国国际"互联网+"大学生创新创业大赛</h3>
-          <p class="work-card-sub">红色旅游赛道 · 省级铜奖</p>
-        </div>
-      </div>
-
-      <div class="work-card reveal" style="cursor:default">
-        <div class="work-card-thumb" style="height:200px;overflow:hidden">
-          <img src="thumbnails/cert-2024-jisuanji.png" alt="计算机设计大赛一等奖" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="work-card-body">
-          <h3>第十七届中国大学生计算机设计大赛</h3>
-          <p class="work-card-sub">省级一等奖</p>
-        </div>
-      </div>
-
-      <div class="work-card reveal" style="cursor:default">
-        <div class="work-card-thumb" style="height:200px;overflow:hidden">
-          <img src="thumbnails/cert-2024-guoji-tong.png" alt="创新大赛铜奖" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="work-card-body">
-          <h3>中国国际大学生创新大赛</h3>
-          <p class="work-card-sub">省级铜奖</p>
-        </div>
-      </div>
-
-    </div>
-    </div>
-
+  <div class="portfolio-tabs">
+    <button class="tab-btn active" onclick="switchTab(this, 'tab-video')">视频作品</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-article')">图文报道</button>
+    <button class="tab-btn" onclick="switchTab(this, 'tab-project')">竞赛项目</button>
   </div>
+
+  <!-- 视频 Tab -->
+  <div class="tab-panel active" id="tab-video">
+    <div class="section-sub" style="margin-bottom:1.2rem;">工信部工业文化发展中心 </div>
+    <div class="work-list">
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/工信部实习作品/video_别等不忙了才想起妈妈 母亲节记得..._top_0_2_compressed.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-001-gongxinbu-muqin.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《别等不忙了才想起妈妈》</h3>
+          <p class="work-list-sub">工信部 · 母亲节主题原创视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/工信部实习作品/video_1970年的今天【东方红一号】_top_0_1.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-002-gongxinbu-dongfanghong.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《1970年的今天·东方红一号》</h3>
+          <p class="work-list-sub">工信部 · 航天科普历史回顾视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/工信部实习作品/video_如何优雅地发一封电报？ 流行..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-003-gongxinbu-dianbao.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《如何优雅地发一封电报？》</h3>
+          <p class="work-list-sub">工信部 · 历史冷知识趣味视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/工信部实习作品/video_爸妈满身尘土，却是我们的盖世英雄..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-004-gongxinbu-baba.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《爸妈满身尘土，却是我们的盖世英雄》</h3>
+          <p class="work-list-sub">工信部 · 情感主题原创视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-sub" style="margin:2rem 0 1.2rem;">山西晚报 </div>
+    <div class="work-list">
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_5月28日，中国大熊猫保护研究中..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-005-shanxiwrb-xiongmao.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《大熊猫保护研究中心辟谣》</h3>
+          <p class="work-list-sub">山西晚报 · 自然生态短视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_印度航空一航班出现引擎故障，乘客..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-006-shanxiwrb-yindu.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>《印度航空引擎故障》</h3>
+          <p class="work-list-sub">山西晚报 · 国际突发事件报道</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_山东一女网红违停被罚200元，情..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-007-shanxiwrb-hongfa.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>《网红违停被罚事件》</h3>
+          <p class="work-list-sub">山西晚报 · 社会热点短视频</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_山河加邻聚里首场线下活动启幕..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-008-shanxiwrb-gongyi.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>《山河加邻聚里首场线下活动》</h3>
+          <p class="work-list-sub">山西晚报 · 社区活动报道</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_山西（太原）特优农产品夏季产销对..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-009-shanxiwrb-nongchanpin.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《山西特优农产品夏季产销对接会》</h3>
+          <p class="work-list-sub">山西晚报 · 产业经济报道</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="openVideo('portfolio_raw/portfolio/山西晚报实习作品/video_特朗普全面暂停12国国民进入美国..._top_0_2.mp4')">
+        <div class="work-list-thumb">
+          <img src="imgs/v-010-shanxiwrb-telangpu.jpg" alt="">
+          <div class="play-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+        </div>
+        <div class="work-list-body">
+          <h3>《特朗普全面暂停12国国民入境》</h3>
+          <p class="work-list-sub">山西晚报 · 国际政治快讯</p>
+          <span class="work-list-tag">🎬 视频</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 图文报道 Tab -->
+  <div class="tab-panel" id="tab-article">
+    <div class="section-sub" style="margin-bottom:1.2rem;">中国经济时报 · 共2篇图文报道</div>
+    <div class="work-list">
+
+      <div class="work-list-item" onclick="window.open(encodeURI('portfolio_raw/portfolio/中国经济时报实习作品/山西：以电力现货市场打造能源革命样板.pdf'))">
+        <div class="work-list-thumb">
+          <img src="imgs/a-001-jingji-dianli.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>山西：以电力现货市场打造能源革命样板</h3>
+          <p class="work-list-sub">中国经济时报 · 产业经济 · 省级刊物深度分析稿件</p>
+          <span class="work-list-tag">📄 图文</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="window.open(encodeURI('portfolio_raw/portfolio/中国经济时报实习作品/山西：锚定科技金融 助力实体经济企稳向好.pdf'))">
+        <div class="work-list-thumb">
+          <img src="imgs/a-002-jingji-keji.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>山西：锚定科技金融 助力实体经济企稳向好</h3>
+          <p class="work-list-sub">中国经济时报 · 科技金融 · 省级刊物深度分析稿件</p>
+          <span class="work-list-tag">📄 图文</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-sub" style="margin-bottom:1rem; margin-top:2rem;">微信公众号文章 · 共4篇</div>
+    <div class="work-list">
+
+      <div class="work-list-item" onclick="window.open('https://mp.weixin.qq.com/s/pM52e1f7d3nx7k4fTece_g')">
+        <div class="work-list-thumb">
+          <img src="imgs/w-001-neirong.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>内容创作 · 策划与数据驱动</h3>
+          <p class="work-list-sub">微信公众号 · 内容运营 / 数据分析 / 选题策划</p>
+          <span class="work-list-tag">🔗 微信</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="window.open('https://mp.weixin.qq.com/s/-g8QtZEuraG4IWDpl1qUOg')">
+        <div class="work-list-thumb">
+          <img src="imgs/w-002-chanjing.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>产业经济 · 深度报道与政策解读</h3>
+          <p class="work-list-sub">微信公众号 · 经济分析 / 政策解读 / 深度报道</p>
+          <span class="work-list-tag">🔗 微信</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="window.open('https://mp.weixin.qq.com/s/RFUyemSZaAF1-mJLVTLO0A')">
+        <div class="work-list-thumb">
+          <img src="imgs/w-003-wenhua.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>文旅活动 · 线下项目统筹与执行</h3>
+          <p class="work-list-sub">微信公众号 · 活动统筹 / 地推执行 / 项目管理</p>
+          <span class="work-list-tag">🔗 微信</span>
+        </div>
+      </div>
+
+      <div class="work-list-item" onclick="window.open('https://mp.weixin.qq.com/s/oKmsiVgAosdT00cnh2gDdA')">
+        <div class="work-list-thumb">
+          <img src="imgs/w-004-redian.jpg" alt="">
+        </div>
+        <div class="work-list-body">
+          <h3>热点分析 · 短视频创作与传播</h3>
+          <p class="work-list-sub">微信公众号 · 热点分析 / 短视频 / 传播策略</p>
+          <span class="work-list-tag">🔗 微信</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 竞赛项目 Tab -->
+  <div class="tab-panel" id="tab-project">
+    <div class="work-list-sect-label" style="margin-bottom:1rem;">大学生创新创业训练计划 · 国家级立项</div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <img src="thumbnails/cert-2023-hulianwang-jin.png" alt="互联网+省金奖">
+        <p>2023年第九届中国国际"互联网＋"大学生创新创业大赛<br>产业命题赛道 · 省级<span class="gold">金奖</span></p>
+      </div>
+      <div class="cert-item">
+        <img src="thumbnails/cert-2023-hongseqi-jin.png" alt="互联网+红色旅游省铜奖">
+        <p>2023年第九届中国国际"互联网＋"大学生创新创业大赛<br>红色旅游赛道 · 省级<span class="bronze">铜奖</span></p>
+      </div>
+      <div class="cert-item">
+        <img src="thumbnails/cert-2024-jisuanji.png" alt="计算机设计大赛省一奖">
+        <p>2024年第17届中国大学生计算机设计大赛<br>· 省级<span class="gold">一等奖</span></p>
+      </div>
+      <div class="cert-item">
+        <img src="thumbnails/cert-2024-guoji-tong.png" alt="国创大赛省铜奖">
+        <p>2024年中国国际大学生创新大赛<br>· 省级<span class="bronze">铜奖</span></p>
+      </div>
+    </div>
+  </div>
+
 </section>
-
-
-<!-- 教育 -->
 <section id="education">
   <div class="section-label">Education</div>
   <h2 class="section-title">教育背景</h2>
@@ -1171,15 +1227,15 @@
     <div class="edu-card reveal">
       <div class="edu-icon">🎓</div>
       <h3>中央民族大学</h3>
-      <div class="edu-sub">新闻与传播学院 · 硕士 · 2025 届</div>
-      <div class="edu-score">—</div>
+      <div class="edu-sub">新闻与传播学院 · 硕士 · 2025 级</div>
+      <div class="edu-score">担任硕士班级班长、党支部宣传委员工作</div>
       <div class="edu-score-label">研究方向：传媒数字化实践</div>
     </div>
     <div class="edu-card reveal">
       <div class="edu-icon">📚</div>
-      <h3>山西大学</h3>
-      <div class="edu-sub">新闻学院 · 学士 · 2022 届</div>
-      <div class="edu-score">—</div>
+      <h3>山西财经大学</h3>
+      <div class="edu-sub">新闻学院 · 学士 · 2025 届</div>
+      <div class="edu-score">担任本科班级班长、校学生通讯社办公室副部长</div>
       <div class="edu-score-label">本科阶段新闻学系统学习</div>
     </div>
     <div class="edu-card reveal">
@@ -1187,7 +1243,7 @@
       <h3>大创课题</h3>
       <div class="edu-sub">国家级立项主持 · 2023–2025</div>
       <div class="edu-score">1</div>
-      <div class="edu-score-label">项国家级大学生创新创业训练计划</div>
+      <div class="edu-score-label"></div>
     </div>
   </div>
 </section>
@@ -1209,7 +1265,7 @@
       <div class="contact-icon">📄</div>
       <div>
         <div class="contact-label">简历 PDF</div>
-        <div class="contact-value">求职简历 · 下载</div>
+        <div class="contact-value" style="color: var(--accent); font-weight: 700;">求职简历 · 下载</div>
       </div>
     </a>
     <a class="contact-card reveal" href="https://github.com/li25300247-ui" target="_blank">
@@ -1231,8 +1287,12 @@
 <script>
   // 标签页切换
   function switchTab(btn, panelId) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    var btns = document.getElementsByClassName('tab-btn');
+    var panels = document.getElementsByClassName('tab-panel');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].classList.remove('active');
+      panels[i].classList.remove('active');
+    }
     btn.classList.add('active');
     document.getElementById(panelId).classList.add('active');
   }
@@ -1293,31 +1353,32 @@
       }
     });
   });
-
-function openVideo(src) {
-  var modal = document.getElementById('video-modal');
-  var video = document.getElementById('modal-video');
-  video.src = src;
-  video.style.display = 'block';
-  modal.style.display = 'flex';
-}
-function closeVideo() {
-  var modal = document.getElementById('video-modal');
-  var video = document.getElementById('modal-video');
-  video.pause();
-  video.src = '';
-  modal.style.display = 'none';
-}
 </script>
 
 
-
-<!-- 视频弹窗 -->
-<div id="video-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
-  <button onclick="closeVideo()" style="position:absolute;top:20px;right:28px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;line-height:1;padding:8px;">&times;</button>
-  <div style="width:90vw;max-width:900px;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-    <video id="modal-video" controls style="width:100%;display:block;max-height:80vh;"></video>
-  </div>
+<!-- 视频弹窗播放器 -->
+<div id="video-modal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center;">
+  <button onclick="closeVideo()" style="position:absolute; top:16px; right:20px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:20px; width:40px; height:40px; border-radius:50%; cursor:pointer; line-height:1;">✕</button>
+  <video id="modal-video" controls="" style="max-width:90vw; max-height:85vh; border-radius:6px;"></video>
 </div>
-
+<script>
+function openVideo(src) {
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('modal-video');
+  video.src = src;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeVideo() {
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('modal-video');
+  modal.style.display = 'none';
+  video.pause();
+  video.src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('video-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
+});
+</script>
 </body></html>
